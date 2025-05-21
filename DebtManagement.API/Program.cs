@@ -1,3 +1,4 @@
+using AutoMapper;
 using DebtManagement.Application.Commands;
 using DebtManagement.Application.Handlers;
 using DebtManagement.Application.Mapping;
@@ -31,6 +32,15 @@ builder.Services.AddDbContext<DebtContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(DebtProfile).Assembly);
 
+builder.Services.AddCors(options => {
+    options.AddPolicy("AllowAngular",
+        policy => policy.WithOrigins("http://localhost:4200")
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+});
+
+
+
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblies(
         typeof(Program).Assembly,                     // API
@@ -48,8 +58,15 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var mapper = scope.ServiceProvider.GetRequiredService<IMapper>();
+    mapper.ConfigurationProvider.AssertConfigurationIsValid();
+}
+
 app.MapOpenApi();
 
+app.UseCors("AllowAngular");
 app.MapScalarApiReference(options =>
 {
     options

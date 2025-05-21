@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DebtManagement.Application.Dtos;
 using DebtManagement.Application.Queries;
 using DebtManagement.Domain.Interfaces;
 using MediatR;

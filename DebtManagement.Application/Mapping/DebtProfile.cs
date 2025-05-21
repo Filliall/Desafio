@@ -9,11 +9,22 @@ public class DebtProfile : Profile
 {
     public DebtProfile()
     {
-        // Mapeamento principal
+
+        // Mapeamento CreateDebtCommand -> Debt
         CreateMap<CreateDebtCommand, Debt>()
+            .ForMember(dest => dest.Id, opt => opt.Ignore()) // Ignorar Id auto-generado
             .ForMember(dest => dest.Installments,
-                      opt => opt.MapFrom(src => src.Installments))
+                       opt => opt.MapFrom(src => src.Installments))
             .ReverseMap();
+
+        // Mapeamento DebtInstallment -> DebtInstallmentDto
+        CreateMap<DebtInstallment, DebtInstallmentDto>()
+            .ForMember(dest => dest.Value,
+                       opt => opt.MapFrom(src => src.OriginalValue))
+            .ReverseMap()
+            .ForMember(dest => dest.OriginalValue,
+                       opt => opt.MapFrom(src => src.Value));
+
 
         // Mapeamento das parcelas
         CreateMap<DebtInstallmentDto, DebtInstallment>()
@@ -25,7 +36,6 @@ public class DebtProfile : Profile
         CreateMap<Debt, DebtDto>()
              .ForMember(dest => dest.Installments, opt => opt.MapFrom(src => src.Installments));
         
-        CreateMap<DebtInstallment, DebtInstallmentDto>();
 
         CreateMap<DebtSummary, DebtSummaryDto>()
             .ForMember(dest => dest.DebtNumber, opt => opt.MapFrom(src => src.DebtNumber))
