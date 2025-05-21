@@ -1,0 +1,24 @@
+@startuml
+package "Application Layer" {
+  [DebtController]
+  [CreateDebtCommandHandler]
+  [GetDebtQueryHandler]
+}
+
+package "Domain Layer" {
+  [Debt]
+  [DebtCalculationService]
+}
+
+package "Infrastructure Layer" {
+  [DebtRepository]
+  [SQL Server]
+}
+
+[DebtController] --> [CreateDebtCommandHandler]
+[CreateDebtCommandHandler] --> [Debt]
+[Debt] --> [DebtCalculationService]
+[DebtRepository] --> [SQL Server]
+[GetDebtQueryHandler] --> [DebtRepository]
+[DebtCalculationService] --> [DebtInstallment]
+@enduml

@@ -1,0 +1,32 @@
+@startuml
+actor User
+participant DebtController
+participant CreateDebtCommandHandler
+participant DebtValidator
+participant DebtFactory
+participant DebtRepository
+database SQLServer
+
+User -> DebtController: POST /api/debts
+activate DebtController
+  DebtController -> CreateDebtCommandHandler: Handle(command)
+  activate CreateDebtCommandHandler
+    CreateDebtCommandHandler -> DebtValidator: Validate(command)
+    activate DebtValidator
+      DebtValidator -> DebtValidator: Check CPF, dates, values
+    deactivate DebtValidator
+    
+    CreateDebtCommandHandler -> DebtFactory: CreateDebt(...)
+    activate DebtFactory
+      DebtFactory -> Debt: new()
+      Debt -> DebtInstallment: Create installments
+    deactivate DebtFactory
+    
+    CreateDebtCommandHandler -> DebtRepository: Add(debt)
+    activate DebtRepository
+      DebtRepository -> SQLServer: INSERT
+    deactivate DebtRepository
+  deactivate CreateDebtCommandHandler
+  DebtController --> User: 201 Created
+deactivate DebtController
+@enduml

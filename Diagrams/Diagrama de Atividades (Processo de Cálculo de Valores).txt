@@ -1,0 +1,17 @@
+@startuml
+start
+:Receber data de referência;
+:Obter todas as parcelas;
+partition "Cálculo de Juros" {
+  :Para cada parcela {
+    :Calcular dias em atraso;
+    :Aplicar juros diários;
+  }
+}
+partition "Cálculo de Multa" {
+  :Calcular multa sobre valor original;
+}
+:Somar todos os valores;
+:Retornar valor atualizado;
+stop
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+package "Domain Layer (Core Business Rules)" {
+  class Debt {
+    - Id: int
+    - DebtNumber: string
+    - DebtorName: string
+    - DebtorCPF: string
+    - InterestRate: decimal
+    - FineRate: decimal
+    - Installments: List<DebtInstallment>
+    + CalculateSummary(referenceDate: DateTime): DebtSummary
+    + Validate()
+  }
+
+  class DebtInstallment {
+    - DebtId: int
+    - InstallmentNumber: int
+    - DueDate: DateTime
+    - OriginalValue: decimal
+    + CalculateInterest(interestRate: decimal, referenceDate: DateTime): decimal
+    + DaysOverdue(referenceDate: DateTime): int
+  }
+
+  class DebtSummary {
+    + DebtNumber: string
+    + DebtorName: string
+    + InstallmentCount: int
+    + OriginalAmount: decimal
+    + DaysOverdue: int
+    + UpdatedAmount: decimal
+  }
+
+  interface IDebtCalculationService {
+    + CalculateUpdatedValue(debt: Debt, referenceDate: DateTime): decimal
+  }
+
+  Debt "1" *-- "1..*" DebtInstallment
+  Debt ..> DebtSummary : creates
+  Debt ..> IDebtCalculationService : uses
+}
+@enduml

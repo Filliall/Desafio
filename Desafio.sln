@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtManagement.API", "DebtManagement.API\DebtManagement.API.csproj", "{3713CBAA-0255-EBCA-1462-D3A52B1D267B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtManagement.Application", "DebtManagement.Application\DebtManagement.Application.csproj", "{1A6BFFE9-259D-F0A3-7750-B874ED4D269D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtManagement.Domain", "DebtManagement.Domain\DebtManagement.Domain.csproj", "{50F22204-283F-5CDD-149D-F318F69ED1BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtManagement.Infrastructure", "DebtManagement.Infrastructure\DebtManagement.Infrastructure.csproj", "{B311F3F2-87A5-B07B-2F4E-E35DAC941A64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebtManagement.Tests", "DebtManagement.Tests\DebtManagement.Tests.csproj", "{1302DF43-32A6-C131-180D-2E61C1120CC6}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3713CBAA-0255-EBCA-1462-D3A52B1D267B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3713CBAA-0255-EBCA-1462-D3A52B1D267B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3713CBAA-0255-EBCA-1462-D3A52B1D267B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3713CBAA-0255-EBCA-1462-D3A52B1D267B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A6BFFE9-259D-F0A3-7750-B874ED4D269D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A6BFFE9-259D-F0A3-7750-B874ED4D269D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A6BFFE9-259D-F0A3-7750-B874ED4D269D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A6BFFE9-259D-F0A3-7750-B874ED4D269D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F22204-283F-5CDD-149D-F318F69ED1BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F22204-283F-5CDD-149D-F318F69ED1BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F22204-283F-5CDD-149D-F318F69ED1BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F22204-283F-5CDD-149D-F318F69ED1BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B311F3F2-87A5-B07B-2F4E-E35DAC941A64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B311F3F2-87A5-B07B-2F4E-E35DAC941A64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B311F3F2-87A5-B07B-2F4E-E35DAC941A64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B311F3F2-87A5-B07B-2F4E-E35DAC941A64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1302DF43-32A6-C131-180D-2E61C1120CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1302DF43-32A6-C131-180D-2E61C1120CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1302DF43-32A6-C131-180D-2E61C1120CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1302DF43-32A6-C131-180D-2E61C1120CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5295AF7D-DDC2-4403-9B70-106E80ECB510}
+	EndGlobalSection
+EndGlobal
